@@ -7,7 +7,7 @@
 
     @include('template.partials._nav')
 
-    @include('template.partials._header')
+    @include('template.partials._hero')
 
     @include('template.partials._main')
 

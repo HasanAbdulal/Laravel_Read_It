@@ -7,7 +7,19 @@ use App\Models\Post;
 
 class PostsController extends Controller
 {
-    public function show(Post $post) {
+    public function index() {
+        $posts = Post::orderBy('created_at','desc')
+                        ->take(10)
+                        ->get();
+    return view('posts.index', compact('posts'));
+    }
+
+    // public function show(Post $post) {
+    //     return view('posts.show', compact('post'));
+    // }
+    public function show(int $id) {
+        $post = Post::find($id);
+        
         return view('posts.show', compact('post'));
     }
 }

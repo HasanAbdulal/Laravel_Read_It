@@ -13,10 +13,14 @@ use App\Http\Controllers\PostsController;
 |
 */
 // Route par Défaut
-Route::get('/{post?}', [PostsController::class, 'show'])
-    ->defaults('post', 1)
+Route::get('/', [PostsController::class, 'index'])
     ->name('homepage');
 
-// Détail d'une Page
+// Route par Défaut
+Route::get('posts', [PostsController::class, 'index'])
+    ->name('posts.index');
+
+// Détail d'un post
 Route::get('/posts/{post}/{slug}', [PostsController::class, 'show'])
     ->name('posts.show');
+
