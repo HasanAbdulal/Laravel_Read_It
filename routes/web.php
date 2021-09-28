@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PostsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route par Défaut
+Route::get('/{post?}', [PostsController::class, 'show'])
+    ->defaults('post', 1)
+    ->name('homepage');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Détail d'une Page
+Route::get('/posts/{post}/{slug}', [PostsController::class, 'show'])
+    ->name('posts.show');
