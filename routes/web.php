@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\TagsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,4 +24,8 @@ Route::get('posts', [PostsController::class, 'index'])
 // Détail d'un post
 Route::get('/posts/{post}/{slug}', [PostsController::class, 'show'])
     ->name('posts.show');
+
+// Liste des tags
+Route::get('/tags/{tag}/{slug}', [TagsController::class, 'show'])
+    ->name('tags.show');
 

@@ -1,3 +1,7 @@
+@php
+    use \Illuminate\Support\Str;
+@endphp
+
 @extends('template.index')
 
 @section('title')
@@ -12,18 +16,13 @@
     <h1 class="mb-3 h1">{{$post->title}}</h1>
         <p> {{$post->content}} </p>
     {{---------------!- Détail d'un post ----------------}}
-    
-    {{---------------- Liste du Tags ----------------}}
-    <div class="tag-widget post-tag-container mb-5 mt-5">
-        <div class="tagcloud">
-            <a href="#" class="tag-cloud-link">Life</a>
-            <a href="#" class="tag-cloud-link">Sport</a>
-            <a href="#" class="tag-cloud-link">Tech</a>
-            <a href="#" class="tag-cloud-link">Travel</a>
-        </div>
-    </div>
-    {{---------------!- Liste du Tags ----------------}}
 
+    {{---------------- Liste du Tags ----------------}}
+        @include('tags._index', [
+            'tags'=>$post->tags
+        ])
+    {{---------------!- Liste du Tags ----------------}}
+    
     {{---------------- Author du post ----------------}}
     <div class="about-author d-flex p-4 bg-light">
         <div class="bio mr-5">
