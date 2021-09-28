@@ -5,12 +5,11 @@
 @endsection
 
 @section('content')
-<div class="col-lg-8 ftco-animate">
     {{---------------- Détail d'un post ----------------}}
     <p class="mb-5">
         <img src="{{asset('assets/images/' . $post->image) }}" alt="" class="img-fluid">
     </p>
-    <h1 class="mb-3 h1">#1. {{$post->title}}</h1>
+    <h1 class="mb-3 h1">{{$post->title}}</h1>
         <p> {{$post->content}} </p>
     {{---------------!- Détail d'un post ----------------}}
     
@@ -86,5 +85,4 @@
         </div>
     </div>
 
-</div> <!-- .col-md-8 -->
 @endsection

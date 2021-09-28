@@ -27,7 +27,13 @@
                         <span class="mos">{{$post->created_at->format('M')}}</span>
                     </div>
                 </div>
-                <h3 class="heading mb-3"><a href="#"> {{$post->title}} </a></h3>
+                <h3 class="heading mb-3">
+                    <a href="{{ route('posts.show', [
+                            'post' => $post->id,
+                            'slug' => \Illuminate\Support\Str::slug($post->title)
+                        ]) }}"> {{$post->title}}
+                    </a>
+                </h3>
                 <p>{{$post->resume}}</p>
                 <p>
                     <a href="{{ route('posts.show', [
