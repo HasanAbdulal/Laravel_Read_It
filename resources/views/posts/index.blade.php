@@ -1,3 +1,7 @@
+@php
+    use \Illuminate\Support\Str;
+@endphp
+
 @extends('template.index')
 
 @section('title')
@@ -11,11 +15,12 @@
     @foreach ($posts as $post)
         <div class="col-md-6 d-flex ftco-animate">
             <div class="blog-entry justify-content-end">
+
             <a href="{{ route('posts.show', [
                 'post' => $post->id,
-                'slug' => \Illuminate\Support\Str::slug($post->title)
+                'slug' => Str::slug($post->title)
             ]) }}" 
-                class="block-20" style="background-image: url('{{asset('assets/images/' . $post->image) }} ');">
+                class="block-20" style="background-image: url(' {{asset('assets/images/' . $post->image) }} ');">
             </a>
             <div class="text p-4 float-right d-block">
                 <div class="topper d-flex align-items-center">
@@ -30,7 +35,7 @@
                 <h3 class="heading mb-3">
                     <a href="{{ route('posts.show', [
                             'post' => $post->id,
-                            'slug' => \Illuminate\Support\Str::slug($post->title)
+                            'slug' => Str::slug($post->title)
                         ]) }}"> {{$post->title}}
                     </a>
                 </h3>
@@ -38,7 +43,7 @@
                 <p>
                     <a href="{{ route('posts.show', [
                         'post' => $post->id,
-                        'slug' => \Illuminate\Support\Str::slug($post->title)
+                        'slug' => Str::slug($post->title)
                     ]) }}" class="btn-custom">
                         <span class="ion-ios-arrow-round-forward mr-3"></span>
                         Read more

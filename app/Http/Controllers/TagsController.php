@@ -7,8 +7,8 @@ use App\Models\Tag;
 
 class TagsController extends Controller
 {
-    // public function show(Tag $tag)
-    // {
-    //     return view('tags.show', compact('tag'));
-    // }
+    public function show(Tag $tag)
+    {
+        return view('tags.show', compact('tag'));
+    }
 }

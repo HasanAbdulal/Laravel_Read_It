@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\TagsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,3 +30,7 @@ Route::get('/posts/{post}/{slug}', [PostsController::class, 'show'])
 Route::get('/tags/{tag}/{slug}', [TagsController::class, 'show'])
     ->name('tags.show');
 
+
+// Catégorie
+// Route::get('/categories/{categorie}/{slug}', [CategoriesController::class, 'show'])
+//     ->name('categories.show');

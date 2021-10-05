@@ -7,16 +7,11 @@
             </div>
         </form>
     </div>
-    <div class="sidebar-box ftco-animate">
-        <div class="categories">
-            <h3>Categories</h3>
-            <li><a href="#">Illustration <span class="ion-ios-arrow-forward"></span></a></li>
-            <li><a href="#">Branding <span class="ion-ios-arrow-forward"></span></a></li>
-            <li><a href="#">Application <span class="ion-ios-arrow-forward"></span></a></li>
-            <li><a href="#">Design <span class="ion-ios-arrow-forward"></span></a></li>
-            <li><a href="#">Marketing <span class="ion-ios-arrow-forward"></span></a></li>
-        </div>
-    </div>
+    
+    {{-- Liste des Catégories --}}
+    @include('categories._index', [
+            'categories'=> \App\Models\Categorie::orderBy('name', 'ASC')->get() 
+        ])
 
     <div class="sidebar-box ftco-animate">
         <h3>Recent Blog</h3>
