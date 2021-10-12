@@ -34,3 +34,6 @@ Route::get('/tags/{tag}/{slug}', [TagsController::class, 'show'])
 // Catégorie
 // Route::get('/categories/{categorie}/{slug}', [CategoriesController::class, 'show'])
 //     ->name('categories.show');
+
+Route::get('/ajax/posts', [PostsController::class, 'more'])
+    ->name('ajax.posts.more');
