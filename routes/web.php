@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\TagsController;
+use App\Http\Controllers\CommentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,6 @@ Route::get('/tags/{tag}/{slug}', [TagsController::class, 'show'])
 
 Route::get('/ajax/posts', [PostsController::class, 'more'])
     ->name('ajax.posts.more');
+
+    Route::get('/ajax/comments/add', [CommentsController::class, 'add'])
+    ->name('ajax.comments.add');

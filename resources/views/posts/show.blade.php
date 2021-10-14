@@ -31,6 +31,22 @@
         'comments'=> $post->comments
     ])
 
-    {{---------------- Formulaire  ----------------}}
+    {{---------------- Formulaire d'ajout d'un comment  ----------------}}
     @include('comments._add-form')
+@endsection
+@section('scripts')
+    <script>
+        $('#addComment').submit(function(e){
+            e.preventDefault();
+            $.get($(this).attr('action'). {
+                pseudo: $('#addComment #pseudo').val(),
+                content: $(this).find('#content').val(),
+                postID: $(this).find('#postID').val()
+            })
+            .done(function(rep){
+                $('.comment-list').appende(rep).find('li:last-of-type').hide().slideDown();
+            });
+        });
+    </script>
+
 @endsection
